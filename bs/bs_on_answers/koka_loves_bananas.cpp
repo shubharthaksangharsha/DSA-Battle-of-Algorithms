@@ -1,6 +1,6 @@
 //Author - Shubharthak Sangharasha
 /*
-    Description: 
+    Description: Given N piles of bananas determine minimum k integer time it takes for koko to eat all the bananas in given H time.
 */
 
 #include<bits/stdc++.h> 
@@ -30,12 +30,12 @@ int maxVal(const vector<int>&v){
     return ans;
 }
 
-int calculate_hours(int const mid, const vector<int>v){
-    int totalhour = 0;
+int calculate_hours(int const k, const vector<int>&v){
+    int ans = 0; 
     for(int i = 0; i < v.size(); i++){
-        totalhour += ceil((double)(v[i]) / (double)(mid));
+    	ans = ans + (ceil((double)(v[i]) / (double)(k)));
     }
-    return totalhour;
+    return ans;
 }
 
 int minimumRateToEatBananas(vector<int> v, int h) {
