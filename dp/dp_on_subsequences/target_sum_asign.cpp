@@ -1,6 +1,6 @@
 //Author - Shubharthak Sangharasha
 /*
-    Description: 
+    Description: Assign signs to array and tell how many ways we can form target
 */
 
 #include<bits/stdc++.h> 
@@ -19,24 +19,17 @@ void print(const vector<int>&arr){
 	}
 	cout << endl;
 }
-int missing_number(const vector<int>&arr, int k, int const n){
-	// for(int i = 0; i < n; i++){
-	// 	if (arr[i] <= k){
-	// 		k++;
-	// 	}
-	// 	break;
-	// }
-	// return k;
-	return 1;
-
-
+int f(int i, int target, vector<int>&arr, int n){
+	
+}
+int solve(vector<int>&arr, int target, int n){
+	return f(n - 1, target, arr, n);
 }
 int main(){
  	int n; cin >> n; 
  	vector<int>arr(n); 
  	input(arr); 
- 	int k; cin >> k;
- 	cout << missing_number(arr, k, arr.size());
- 	// print(arr);
+ 	int target; cin >> target;
+ 	cout << solve(arr, target, n);
     return 0; 
 }
