@@ -29,7 +29,19 @@ bool check_prime(int n){
 	// }
 	// return count == 2;
 
+	//Sieve of Esthrasus O(N^2)
+	vector<bool>sieve(N, true);
+	for(int i = 2; i * i  < N; i++){
+		if(sieve[i]){
+			int j = 2 * i; 
+			while(j < N){
+				sieve[j] = false; 
+				j += i;
+			}
+		}
+	}
 }
+
 int main(){
  	int n; cin >> n;
  	if(check_prime(n)){
