@@ -1,3 +1,4 @@
+//https://leetcode.com/problems/move-zeroes/description/
 //Author - Shubharthak Sangharasha
 /*
     Description: Move all the zeros at the right side (inplace)
@@ -19,29 +20,32 @@ void print(const vector<int>&arr){
 	}
 	cout << endl;
 }
-void solve(vector<int>&arr){
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        if(nums.size() == 1){
+            return;
+        }
+        int j = -1; 
+        for(int i = 0; i < nums.size(); i++){
+            if(nums[i] == 0){
+                j = i; break;
+            }
+        }
 
-	//Optimzal approach 
-	int slow = -1; 
-	for(int i = 0; i < arr.size(); i++){
-		if(arr[i] == 0){
-			slow = i;
-			break;
-		}
-	}
-	for(int i = slow + 1; i < arr.size(); i++){
-		if(arr[i] != 0){
-			swap(arr[i], arr[slow++]);
-		}
-	}
-
-}
+        for(int i = j+1; i < nums.size(); i++){
+            if(nums[i] != 0 && j != -1){
+                swap(nums[i], nums[j++]);
+            }
+        }
+    }
+};
 int main(){
  	int n; cin >> n; 
  	vector<int>arr(n); 
  	input(arr); 
- 	// print(arr);
- 	solve(arr);
+ 	Solution sol;
+ 	sol.moveZeroes(arr);
  	print(arr);
     return 0; 
 }
