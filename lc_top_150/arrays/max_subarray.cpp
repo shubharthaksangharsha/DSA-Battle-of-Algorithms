@@ -21,6 +21,29 @@ void print(const vector<int>&arr){
 }
 class Solution {
 public:
+	void print_array(vector<int>&nums){
+		int ans = nums[0]; 
+        int temp = 0;
+        int start = -1, ansStart = -1, ansEnd = -1;
+        for(int i = 0; i < nums.size(); i++){
+        	if(temp == 0){
+        		start = i; 
+        	}
+            temp += nums[i];
+            if(ans < temp){
+            	ans = temp;
+            	ansStart = start;
+            	ansEnd = i;
+            }
+            if(temp < 0){
+                temp = 0;
+            }
+        }
+        while(ansStart <= ansEnd){
+        	cout << nums[ansStart++] << " ";
+        }
+        cout << endl;
+	}
     int maxSubArray(vector<int>& nums) {
         int ans = nums[0]; 
         int temp = 0;
@@ -39,7 +62,7 @@ int main(){
  	vector<int>arr(n); 
  	input(arr);
  	Solution sol;
- 	cout << sol.maxSubArray(arr); 
- 	
+ 	cout << sol.maxSubArray(arr) << endl; 
+ 	sol.print_array(arr);
     return 0; 
 }
