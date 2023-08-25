@@ -1,0 +1,30 @@
+Graph: anything which have node and edges called graph 
+2 types:
+1. Directed: Contains a single direction edges
+2. Adirected: Contains a Bidirectional edges 
+
+Cycle: Anything which start from one and end at again at one is call a cycle 
+2 Types:
+1. UnDirected Cyclic Graph: Undirected graph which contains cycle 
+2. Directed Acyclic Graph: No Cycles 
+
+Path: Contains alot of nodes/vertex and each of them are reachable (node cannot appear twice in a path) 
+
+Degrees: Number of edges attached to a vertex . 
+Important Property: Total Degree of a Graph = 2 x Edge (Undirected Graph) 
+
+Degrees of Directed Graph: 2 types Indegree and Outdegree 
+Indegree: No. of incomming (goes inside the vertex) edges 
+Outdegree: No. of outgoing(goes outside from the vertex) edges. 
+
+Edge Weight: Weights assign to a particular edge (cost to travel from that edge) 
+if no weights assign assume unit weight as 1 
+
+
+Graph Representation (Input and Store) 
+input 
+n and m (n: vertex and m: edges) 
+
+
+
+

@@ -19,23 +19,25 @@ void print(const vector<int>&arr){
 	}
 	cout << endl;
 }
-
-int count_duplicates(vector<int>arr){
-	int n = arr.size(); 
-	int count = 0;
-	sort(arr.begin(), arr.end());
-	for(int i = 0; i < n - 1; i++){
-		cout << arr[i] << " ";
-		if(arr[i] == arr[i+1]){
+int solve(vector<int>&arr, int input1, int input2){
+	unordered_map<int, bool>mp; 
+	for(int i = 0; i < arr.size(); i++){
+		mp[arr[i]] = 1; 
+	}
+	int ans = 0, count = 0;
+	for(int i = 1; i <= input1; i++){
+		if(!mp[i] && ans + i <= input1){
+			ans+= i;
 			count++;
 		}
 	}
 	return count;
 }
 int main(){
- 	int n; cin >> n; 
- 	vector<int>arr(n); 
+ 	int input1, input2; cin >> input1 >> input2;
+
+ 	vector<int>arr(input2); 
  	input(arr); 
- 	cout << count_duplicates(arr);
+ 	cout << solve(arr, input1, input2) << endl;
     return 0; 
 }
