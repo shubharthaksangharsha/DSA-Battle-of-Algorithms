@@ -48,6 +48,11 @@ class Solution {
         vector<int>ans;
         vector<int>vis(V, 0);
         dfs(0, adj, vis, ans);
+        // for(int i = 0; i < V; i++){
+        //     if(!vis[i]){
+        //         dfs(i, adj, vis, ans);
+        //     }
+        // }
         return ans;
     }
 };

@@ -68,7 +68,7 @@ int f3(int i, int N, vector<int>&arr){
 	}
 	return dp[N - 1][N];
 }
-int f4(int i, int N, vector<int>&arr){
+int f4(int i, int N, int arr[]){
 	vector<int>prev(N+1, -1), curr(N + 1, -1);
 	//base case 
 	for(int n = 0; n <= N; n++){
@@ -88,17 +88,18 @@ int f4(int i, int N, vector<int>&arr){
 	}
 	return prev[N];
 }
-int solve(vector<int>&arr, int n){
-	vector<vector<int> > dp(n, vector<int>(n + 1, -1));
+int solve(int arr[], int n){
 	return f4(n - 1, n , arr);
-	return f3(n - 1, n, arr);
-	return f2(n - 1, n, arr, dp);
-	return f(n - 1, n, arr);
+	// return f3(n - 1, n, arr);
+	// return f2(n - 1, n, arr, dp);
+	// return f(n - 1, n, arr);
 }
 int main(){
  	int n; cin >> n; 
- 	vector<int>arr(n); 
- 	input(arr); 
+ 	int arr[n];
+ 	for(int i = 0; i < n; i++){
+ 		cin >> arr[i];
+ 	}
  	cout << solve(arr, n);
     return 0; 
 }

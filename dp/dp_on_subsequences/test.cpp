@@ -1,55 +1,42 @@
+
 //Author - Shubharthak Sangharasha
 /*
-    Description: Two Sum 
+    Description: 
 */
+
 
 #include<bits/stdc++.h> 
 using namespace std; 
-int const N = 10e6;
 
-void input(vector<int>&arr){
-	for(auto &i: arr){
-		cin >> i; 
+int getWoodPiece(int arr[], int N){
+	vector<int>prev(N+1, -1), curr(N + 1, -1);
+	//base case 
+	for(int n = 0; n <= N; n++){
+		prev[n] = n * arr[0];
 	}
-}
-
-void print(const vector<int>&arr){
-	for(auto const i: arr){
-		cout << i << " ";
-	}
-	cout << endl;
-}
-const vector<int> solve(const vector<int>&arr, int const target){
-	// if(arr.size() == 0){
-	// 	return ;
-	// }
-	// if(arr.size() == 1){
-	// 	return arr[0] ? target == arr[0] : -1;
-	// }
-	vector<int>res;
-	int low = 0; 
-	int high = arr.size() - 1; 
-	while(low <= high){
-		int sum = arr[low] + arr[high];
-		if(sum == target){
-			res.push_back(low);
-			res.push_back(high);
-			return res;
-		} else if(sum > target){
-			high--;
-		} else{
-			low++;
+	for(int ind = 1; ind < N; ind++){
+		for(int n = 0; n <= N; n++){
+			int not_take = prev[n];
+			int take = INT_MIN; 
+			int rod_length = ind + 1; 
+			if(rod_length <= n){
+				take = arr[ind] + curr[n - rod_length];
+			}
+			curr[n] = max(not_take, take);			
 		}
+		prev = curr;
 	}
-	res.push_back(-1);
-	res.push_back(-1);
-	return res;
+	return prev[N];
 }
 int main(){
- 	int n; cin >> n; 
- 	vector<int>arr(n); 
- 	input(arr); 
- 	int target; cin >> target; 
- 	cout << solve(arr, target)[0] <<" " << solve(arr, target)[1];
-    return 0; 
+ 	int n, i, a[20], price; 
+ 	cin >> n; 
+ 	for(i = 0; i < n; i++){
+ 		cin >> a[i];
+ 	}
+ 	price = getWoodPiece(a, n);
+ 	cout << "maximum price is " << price << "\n";
+ 	return 0;
+ 	
+  	return 0; 
 }
