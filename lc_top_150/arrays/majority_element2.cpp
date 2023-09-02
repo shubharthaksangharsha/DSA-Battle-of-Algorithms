@@ -1,8 +1,7 @@
+//https://leetcode.com/problems/majority-element-ii/description/
 //Author - Shubharthak Sangharasha
 /*
     Description: Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times.
-
-
 */
 
 #include<bits/stdc++.h> 

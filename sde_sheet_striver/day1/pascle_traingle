@@ -1,0 +1,16 @@
+Pascle Triangle 
+
+							1
+						1		1
+					1		2		1	
+				1		3		3		1
+			1		4		6		4		1
+		1		5		10		10		5		1
+		
+		
+3 types of question 
+1. Given Row and column, tell element at that place (e.g r = 5, c = 6, ans = 6) 
+2. print row of pascle triangle (e.g n = 5, ans = [1 4 6 4 1])
+3. given n print the entire triangle (n 6, ans: above figure)
+
+
